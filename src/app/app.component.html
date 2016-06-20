@@ -1,3 +1,5 @@
 <h1>
   {{title}}
 </h1>
+<rate-picker *ngFor="let state of ['top','ok','meh']" [rating]="state" [hide]="selectedState && selectedState != state"
+             (click)="selectedState=toggleStates(selectedState,state)"></rate-picker>
