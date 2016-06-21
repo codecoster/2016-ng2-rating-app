@@ -1,18 +1,27 @@
-import {Component} from '@angular/core';
+import {Component, provide, OnInit} from '@angular/core';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/Rx';
 
-import {RatePickerComponent} from './rate-picker'
+import {TalkRatingComponent} from "./talk-rating/talk-rating.component";
+import {TalkService, TalkFakeService, Talk} from "./shared";
+
 
 @Component({
   moduleId: module.id,
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
-  directives: [RatePickerComponent]
+  directives: [TalkRatingComponent],
+  providers: [provide(TalkService, {useClass: TalkFakeService})]
 })
-export class AppComponent {
-  title = 'app works!';
+export class AppComponent implements OnInit{
+  title:string = 'Rate the Talks!';
+  private talks: Observable<Array<Talk>>;
 
-  toggleStates(currentState:string, nextState:string):string {
-    return currentState == nextState ? '' : nextState;
+  constructor(private talkService:TalkService){
+  }
+
+  ngOnInit():any{
+    this.talks = this.talkService.getTalks();
   }
 }

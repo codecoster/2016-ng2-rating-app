@@ -1,14 +1,16 @@
 /* tslint:disable:no-unused-variable */
-
+import {provide} from '@angular/core';
 import {
   beforeEach, beforeEachProviders,
   describe, xdescribe,
   expect, it, xit,
   async, inject
 } from '@angular/core/testing';
-import { AppComponent } from './app.component';
 
-beforeEachProviders(() => [AppComponent]);
+import { AppComponent } from './app.component';
+import {TalkService, TalkFakeService} from './shared';
+
+beforeEachProviders(() => [provide(TalkService, {useClass:TalkFakeService} ),AppComponent]);
 
 describe('App: RatingApp', () => {
   it('should create the app',
@@ -16,8 +18,8 @@ describe('App: RatingApp', () => {
     expect(app).toBeTruthy();
   }));
 
-  it('should have as title \'app works!\'',
+  it('should have as title \'Rate the Talks!\'',
       inject([AppComponent], (app: AppComponent) => {
-    expect(app.title).toEqual('app works!');
+    expect(app.title).toEqual('Rate the Talks!');
   }));
 });

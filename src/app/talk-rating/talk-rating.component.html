@@ -1,0 +1,13 @@
+<h2>
+  Talk: {{talk.title}}
+</h2>
+<p>
+  Speaker: {{talk.speaker}}
+</p>
+
+<rate-picker *ngFor="let rating of ['top','ok','meh']"
+             [rating]="rating"
+             [hide]="currentRating && rating != currentRating"
+             (click)="switchRating(rating)">
+</rate-picker>
+<hr>
