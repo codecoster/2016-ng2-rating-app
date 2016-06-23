@@ -1,5 +1,6 @@
 import {Component, Input, EventEmitter, Output} from '@angular/core';
-import {Talk} from "../shared/talk.model";
+
+import {Talk} from "../shared/";
 import {RatePickerComponent} from "./rate-picker/rate-picker.component";
 
 @Component({
@@ -11,12 +12,4 @@ import {RatePickerComponent} from "./rate-picker/rate-picker.component";
 })
 export class TalkRatingComponent {
   @Input() talk:Talk;
-  @Output() rated:EventEmitter<any> = new EventEmitter<any>();
-
-  public currentRating:string;
-
-  switchRating(newRating:string):void {
-    this.currentRating = (this.currentRating == newRating ? '' : newRating);
-    this.rated.emit([this.talk,this.currentRating]);
-  }
 }

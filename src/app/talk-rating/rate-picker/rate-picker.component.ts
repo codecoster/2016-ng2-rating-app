@@ -1,4 +1,4 @@
-import {Input, Component} from '@angular/core';
+import {Output, EventEmitter, Component} from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -7,7 +7,18 @@ import {Input, Component} from '@angular/core';
   styleUrls: ['rate-picker.component.css']
 })
 export class RatePickerComponent {
+    
+  @Output() rated:EventEmitter<any> = new EventEmitter<any>();
 
-  @Input() rating:string;
-  @Input() hide:boolean;
+  private ratings = ['top', 'ok', 'meh'];
+  currentRating:string;
+
+  switchRating(newRating:string):void {
+    this.currentRating = (this.currentRating == newRating ? '' : newRating);
+    this.rated.emit(this.currentRating);
+  }
+  
+  private checkHidden(rating:string): boolean{
+      return this.currentRating && this.currentRating != rating;
+  }
 }
