@@ -1,5 +1,3 @@
-<div *ngFor="let rating of ratings"
-     [class]="rating||''"
-     [class.hidden]="checkHidden(rating)"
-     (click)="switchRating(rating)">
+<div *ngFor="let rating of ratings">
+    {{rating}}
 </div>

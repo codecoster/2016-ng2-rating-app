@@ -12,10 +12,4 @@ import {RatePickerComponent} from "./rate-picker/rate-picker.component";
 })
 export class TalkRatingComponent {
     @Input() talk: Talk;
-
-    private changeRating(rating: string): void {
-        if (rating) {
-            console.log(`Rate the Talk '${this.talk.title}' by '${this.talk.speaker}' with '${rating}'`);
-        }
-    }
 }
