@@ -10,15 +10,9 @@ export class RatePickerComponent {
     
   @Output() rated:EventEmitter<any> = new EventEmitter<any>();
 
-  currentRating:string;
   private ratings = ['top', 'ok', 'meh'];
 
   switchRating(newRating:string):void {
-    this.currentRating = (this.currentRating == newRating ? '' : newRating);
-    this.rated.emit(this.currentRating);
-  }
-  
-  private checkHidden(rating:string): boolean{
-      return this.currentRating && this.currentRating != rating;
+    this.rated.emit(newRating);
   }
 }
