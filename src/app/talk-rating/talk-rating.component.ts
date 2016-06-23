@@ -1,4 +1,4 @@
-import {Component, Input, EventEmitter, Output} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 import {Talk} from "../shared/";
 import {RatePickerComponent} from "./rate-picker/rate-picker.component";
