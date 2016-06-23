@@ -15,6 +15,7 @@ import {TalkService, TalkFakeService, Talk} from "./shared";
   providers: [provide(TalkService, {useClass: TalkFakeService})]
 })
 export class AppComponent implements OnInit{
+    
   title:string = 'Rate the Talks!';
   private talks: Observable<Array<Talk>>;
 

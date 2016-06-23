@@ -10,8 +10,8 @@ export class RatePickerComponent {
     
   @Output() rated:EventEmitter<any> = new EventEmitter<any>();
 
-  private ratings = ['top', 'ok', 'meh'];
   currentRating:string;
+  private ratings = ['top', 'ok', 'meh'];
 
   switchRating(newRating:string):void {
     this.currentRating = (this.currentRating == newRating ? '' : newRating);
