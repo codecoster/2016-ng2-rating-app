@@ -17,8 +17,4 @@ export class RatePickerComponent {
     this.currentRating = (this.currentRating == newRating ? '' : newRating);
     this.rated.emit(this.currentRating);
   }
-  
-  private checkHidden(rating:string): boolean{
-      return this.currentRating && this.currentRating != rating;
-  }
 }

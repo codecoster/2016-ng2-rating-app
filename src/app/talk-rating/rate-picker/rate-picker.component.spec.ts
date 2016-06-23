@@ -1,6 +1,5 @@
 /* tslint:disable:no-unused-variable */
 import {By}           from '@angular/platform-browser';
-import {TestComponentBuilder, ComponentFixture} from '@angular/compiler/testing';
 import {Component, DebugElement} from '@angular/core';
 import {
     beforeEach, beforeEachProviders,
@@ -32,17 +31,4 @@ describe('Component: RatePicker', () => {
         expect(ratePickerComponent.currentRating).toEqual('top');
     }
     ));
-
-    it('should show the proper symbol', async(inject([TestComponentBuilder], (builder: TestComponentBuilder) => {
-        builder.createAsync(TestComponent)
-            .then((fixture: ComponentFixture<TestComponent>) => {
-                fixture.detectChanges();
-
-                let nativeElement = fixture.debugElement.children[0].nativeElement;
-                nativeElement.getElementsByClassName('top')[0].click();
-                fixture.detectChanges();
-                let mehElement = nativeElement.getElementsByClassName('meh')[0];
-                expect(mehElement.className).toEqual('meh hidden');
-            });
-    })));
 });
