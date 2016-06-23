@@ -8,9 +8,8 @@ import {
 } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
-import {TalkService, TalkFakeService} from './shared';
 
-beforeEachProviders(() => [provide(TalkService, {useClass:TalkFakeService} ),AppComponent]);
+beforeEachProviders(() => [AppComponent]);
 
 describe('App: RatingApp', () => {
   it('should create the app',
