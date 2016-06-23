@@ -1,28 +1,13 @@
-import {Component, provide, OnInit} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/Rx';
-
-import {TalkRatingComponent} from "./talk-rating/talk-rating.component";
-import {TalkService, TalkFakeService, Talk} from "./shared";
-
+import {Component} from '@angular/core';
 
 @Component({
-  moduleId: module.id,
-  selector: 'app-root',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.css'],
-  directives: [TalkRatingComponent],
-  providers: [provide(TalkService, {useClass: TalkFakeService})]
+    moduleId: module.id,
+    selector: 'app-root',
+    templateUrl: 'app.component.html',
+    styleUrls: ['app.component.css']
 })
-export class AppComponent implements OnInit{
-    
-  title:string = 'Rate the Talks!';
-  private talks: Observable<Array<Talk>>;
+export class AppComponent {
 
-  constructor(private talkService:TalkService){
-  }
+    title: string = 'Rate the Talks!';
 
-  ngOnInit():any{
-    this.talks = this.talkService.getTalks();
-  }
 }
