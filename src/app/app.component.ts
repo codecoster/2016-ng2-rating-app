@@ -2,7 +2,6 @@ import {Component, provide, OnInit} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
 
-import {TalkRatingComponent} from "./talk-rating/talk-rating.component";
 import {TalkService, TalkFakeService, Talk} from "./shared";
 
 
@@ -11,7 +10,6 @@ import {TalkService, TalkFakeService, Talk} from "./shared";
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
-  directives: [TalkRatingComponent],
   providers: [provide(TalkService, {useClass: TalkFakeService})]
 })
 export class AppComponent implements OnInit{
